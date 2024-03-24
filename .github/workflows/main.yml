@@ -23,6 +23,8 @@ jobs:
 
     - name: Run Next.js Lint
       run: npm run lint
+      if: always()
 
     - name: Run Jest tests
       run: npm run test:ci
+      if: always()
