@@ -1,0 +1,43 @@
+$border_size: 5px;
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: calc(100% - 2 * $border_size);
+    height: calc(100% - 2 * $border_size);
+    border-radius: 50%;
+    border-width: $border_size;
+    border-style: solid;
+    border-color: rgba(1, 65, 255, 0.4) transparent transparent transparent;
+    animation: load8 1.1s infinite linear;
+  }
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,10 +1,33 @@
+"use server";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { notFound } from "next/navigation";
+import { getMainDictionary } from "features/server";
+import {
+  ACCEPTED_LANGUAGES,
+  DEFAULT_LANGUAGE,
+  LanguageEnum,
+} from "@entities/constants";
+import styles from "./MainPage.module.scss";
 
-export default function Home() {
+type Props = Readonly<{
+  params: { lang: LanguageEnum };
+}>;
+
+export const MainPage = async ({
+  params: { lang = DEFAULT_LANGUAGE },
+}: Props) => {
+  if (!ACCEPTED_LANGUAGES.includes(lang)) {
+    console.log(lang);
+    notFound();
+  }
+  const dict = await getMainDictionary(lang);
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        <p>
+          translated `name` &nbsp;
+          <code className={styles.code}>{dict.name}</code>
+        </p>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
@@ -17,7 +40,7 @@ export default function Home() {
           >
             By{" "}
             <Image
-              src="/vercel.svg"
+              src="/next_server/icons/vercel.svg"
               alt="Vercel Logo"
               className={styles.vercelLogo}
               width={100}
@@ -31,7 +54,7 @@ export default function Home() {
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
+          src="/next_server/icons/next.svg"
           alt="Next.js Logo"
           width={180}
           height={37}
@@ -92,4 +115,4 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};

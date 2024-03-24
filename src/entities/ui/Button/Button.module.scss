@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius:  var(--border-radius-sm);
+  background-color: rgba(var(--callout-rgb), 0.5);
+  padding: var(--padding-sm) var(--padding-md);
+  color: rgb(var(--foreground-rgb));
+  font-size: medium;
+  line-height: normal;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(var(--callout-border-rgb), 0.3);
+    color: rgba(var(--foreground-rgb), 0.7);
+  }
+}

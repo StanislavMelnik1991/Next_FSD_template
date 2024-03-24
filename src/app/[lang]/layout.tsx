@@ -13,15 +13,15 @@ export const metadata: Metadata = {
 
 type Props = Readonly<{
   children: React.ReactNode;
-  params: { lang: [LanguageEnum] };
+  params: { lang: LanguageEnum };
 }>;
 
 export default function RootLayout({
   children,
-  params: { lang = [DEFAULT_LANGUAGE] },
+  params: { lang = DEFAULT_LANGUAGE },
 }: Props) {
   return (
-    <html lang={lang[0]}>
+    <html lang={lang}>
       <ThemeLayout className={inter.className}>{children}</ThemeLayout>
     </html>
   );

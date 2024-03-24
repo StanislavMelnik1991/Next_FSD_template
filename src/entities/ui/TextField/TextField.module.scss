@@ -1,0 +1,8 @@
+.wrapper {
+  display: flex;
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius:  var(--border-radius-sm);
+  background-color: rgba(var(--callout-rgb), 0.5);
+  padding: var(--padding-sm) var(--padding-md);
+  color: rgb(var(--foreground-rgb));
+}
