@@ -10,6 +10,7 @@ module.exports = {
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    "plugin:@conarti/feature-sliced/recommended",
   ],
   root: true,
   env: {

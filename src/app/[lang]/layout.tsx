@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import {} from "next/navigation";
-import { ThemeLayout } from "widgets/layouts";
-import { DEFAULT_LANGUAGE, LanguageEnum } from "@entities/constants";
+import { GlobalLayout } from "widgets/layouts";
+import { LanguageEnum } from "@entities/constants";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,13 +16,12 @@ type Props = Readonly<{
   params: { lang: LanguageEnum };
 }>;
 
-export default function RootLayout({
-  children,
-  params: { lang = DEFAULT_LANGUAGE },
-}: Props) {
+export default function RootLayout({ children, params: { lang } }: Props) {
   return (
     <html lang={lang}>
-      <ThemeLayout className={inter.className}>{children}</ThemeLayout>
+      <GlobalLayout lang={lang} className={inter.className}>
+        {children}
+      </GlobalLayout>
     </html>
   );
 }

@@ -4,3 +4,5 @@
 *.setup.ts
 *.test.js
 *.test.ts
+*.dictionary.js
+*.dictionary.ts

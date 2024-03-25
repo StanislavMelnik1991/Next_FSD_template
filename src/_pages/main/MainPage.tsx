@@ -1,11 +1,13 @@
 "use server";
+import { cookies } from "next/headers";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { getMainDictionary } from "features/server";
 import {
   ACCEPTED_LANGUAGES,
   DEFAULT_LANGUAGE,
   LanguageEnum,
+  USER_LOCALE_COOKIE_NAME,
 } from "@entities/constants";
 import styles from "./MainPage.module.scss";
 
@@ -17,9 +19,11 @@ export const MainPage = async ({
   params: { lang = DEFAULT_LANGUAGE },
 }: Props) => {
   if (!ACCEPTED_LANGUAGES.includes(lang)) {
-    console.log(lang);
-    notFound();
+    const locale =
+      cookies().get(USER_LOCALE_COOKIE_NAME)?.value || DEFAULT_LANGUAGE;
+    redirect(locale);
   }
+
   const dict = await getMainDictionary(lang);
   return (
     <main className={styles.main}>

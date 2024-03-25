@@ -18,6 +18,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@conarti/eslint-plugin-feature-sliced": "^1.0.5",
+    "@feature-sliced/eslint-config": "^0.1.0-beta.6",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@types/jest": "^29.5.12",
